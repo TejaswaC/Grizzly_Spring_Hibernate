@@ -1,6 +1,6 @@
 package com.cts.grizzly.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired; 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.cts.product.bean.Login;
-import com.cts.product.service.LoginService;
+import com.cts.grizzly.bean.Login;
+import com.cts.grizzly.service.LoginService;
+
+
 
 @Controller
 public class LoginController {
@@ -29,23 +31,23 @@ public class LoginController {
 	@RequestMapping(value="login.html", method= RequestMethod.POST)						//PostMapping(value="login.html", method= RequestMethod.GET)
 	public ModelAndView validateUser(@ModelAttribute Login login){
 		ModelAndView modelAndView = new ModelAndView();
-		//if(loginService.authenticate("admin","admin")!=null){
+		System.out.println(login);
+		if(loginService.authenticate(login)!=null){
 			modelAndView.setViewName("admin");
-	/*	return modelAndView;
+			return modelAndView;
 	}
 	else{
 		modelAndView.setViewName("login");
 		return modelAndView;
-	}*/
-			return modelAndView;
+	}
 
-}}
+
 	
 	
 	
 	
 	
-	
+	}}
 	
 	
 	

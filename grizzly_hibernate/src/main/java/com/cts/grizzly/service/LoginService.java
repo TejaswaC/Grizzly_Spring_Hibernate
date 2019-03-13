@@ -1,8 +1,8 @@
 package com.cts.grizzly.service;
 
-import com.cts.product.bean.Login;
+import com.cts.grizzly.bean.Login;
 
 public interface LoginService {
 
-	public Login authenticate(String userName, String password);
+	public Login authenticate(Login login);
 }

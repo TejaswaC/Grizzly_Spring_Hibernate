@@ -1,8 +1,8 @@
 package com.cts.grizzly.dao;
 
-import com.cts.product.bean.Login;
+import com.cts.grizzly.bean.Login;
 
 public interface LoginDAO {
 
-	public Login authenticate(String userName, String password);
+	public Login authenticate(Login login);
 }

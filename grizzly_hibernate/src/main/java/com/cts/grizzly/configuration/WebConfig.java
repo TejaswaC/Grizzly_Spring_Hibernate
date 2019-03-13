@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages= {"com.cts.product.controller"})
+@ComponentScan(basePackages= {"com.cts.grizzly.controller"})
 public class WebConfig extends WebMvcConfigurerAdapter {
 
 	@Bean

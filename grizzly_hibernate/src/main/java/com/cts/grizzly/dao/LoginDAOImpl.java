@@ -1,6 +1,6 @@
 package com.cts.grizzly.dao;
 
-import java.util.List;
+import java.util.List; 
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.cts.product.bean.Login;
+import com.cts.grizzly.bean.Login;
+
 
 @Repository("loginDAO")
 @Transactional
@@ -19,39 +20,48 @@ public class LoginDAOImpl implements LoginDAO {
 	//@Qualifier("sessionFactory")
 	private SessionFactory sessionFactory;
 	@Transactional(readOnly=true)
-	public Login authenticate(String userName, String password) {
+	public Login authenticate(Login login) {
 		// TODO Auto-generated method stub
 		org.hibernate.Session session = null;
 		String query = "from Login where userName=? and password=?";
 		org.hibernate.query.Query<Login> query2 = null;
-		Login login=new Login(userName, password);
-		if(login==null){
-			return null;
-		}
-		else{
+		
 		
 		
 		try {
 			session = sessionFactory.getCurrentSession();
-			
+			System.out.println("in dao");
+			System.out.println(login.getUserName()+ login.getUserName());
 			query2 = session.createQuery(query);
-			query2.setParameter(0, login.getUserName());
-			query2.setParameter(1, login.getPassword());
-			 login = query2.getSingleResult();
-			return login;
+			query2.setParameter(0,login.getUserName());
+			query2.setParameter(1,login.getPassword());
+			Login login2 = query2.getSingleResult();
+			System.out.println("retrieved");
+			
+			
+			if(login2==null){
+				System.out.println("condition failed");
+				return null;
+			}
+			else
+			{
+				System.out.println("condition passed");
+
+			
+			return login2;}
 			// TODO: handle exception
 			
 		}
 		finally {
-			
 		}
+		
 		
 	}}
 	
 	//@Transactional(readonly="true")
 	
 	
-}
+
 	/*public Login authenticate(String userName, String password) {
 		// TODO Auto-generated method stub
 		org.hibernate.Session session = null;

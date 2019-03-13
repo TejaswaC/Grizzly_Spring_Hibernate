@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>In View-Login</title>
+<title>In View</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="styles/styles.css">
 </head>
@@ -14,11 +14,11 @@
         <center><img src="images/logo.png" alt="Grizzly Logo" />
   
     <br><br>
-    <form action="login.html" method="POST">
+    <form name="loginForm" action="LoginServlet" method="POST">
             <div class="form-group row topnav1 ">
                     <label for="fname" class="col-sm-5 col-form-label"></label>
                     <div class="col-sm-2">
-        <input type="text" name="userName" placeholder="Username" class="form-control form-rounded" id="userId" required > 
+        <input type="text" name="userId" placeholder="Username" class="form-control form-rounded" id="userId" required > 
     </div>
    </div>
             <div class="form-group row topnav1 ">
