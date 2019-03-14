@@ -1,62 +1,77 @@
 package com.cts.grizzly.dao;
 
-import java.util.List;  
+import java.util.List;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.cts.grizzly.bean.Login;
+import com.cts.grizzly.bean.Category;
+import com.cts.grizzly.bean.Product;
 
 
-@Repository("loginDAO")
+
+
+@Repository("productDAO")
 @Transactional
-public class LoginDAOImpl implements LoginDAO {
+public class ProductDAOImpl implements ProductDAO {
 
 	@Autowired
 	//@Qualifier("sessionFactory")
 	private SessionFactory sessionFactory;
-	@Transactional(readOnly=true)
-	public Login authenticate(Login login) {
+	@Transactional
+	public String addProduct(Product product) {
 		// TODO Auto-generated method stub
-		org.hibernate.Session session = null;
-		String query = "from Login where userName=? and password=?";
-		org.hibernate.query.Query<Login> query2 = null;
+		Session session = null;
+		// TODO Auto-generated method stub
 		
-		
-		
-		try {
 			session = sessionFactory.getCurrentSession();
-			System.out.println("in dao");
-			System.out.println(login.getUserName()+ login.getUserName());
-			query2 = session.createQuery(query);
-			query2.setParameter(0,login.getUserName());
-			query2.setParameter(1,login.getPassword());
-			Login login2 = query2.getSingleResult();
-			System.out.println("retrieved");
-			
-			
-			if(login2==null){
-				System.out.println("condition failed");
-				return null;
-			}
-			else
-			{
-				System.out.println("condition passed");
+		
+		System.out.println("Inside DAO");
 
-			
-			return login2;}
-			// TODO: handle exception
-			
-		}
-		finally {
-		}
+		session.save(product);
+		System.out.println("Tupple inserted");
+			return "Inserted";
 		
 		
-	}}
+			
+			
+		
+	}
+	
+	
+	@Transactional
+	public List<Product> viewProducts() {
+		// TODO Auto-generated method stub
+		Session session = null;
+
+		String query = "from Product";
+		org.hibernate.query.Query<Product> query2=null;
+		System.out.println("in product dao");
+		// TODO Auto-generated method stub
+		
+			session = sessionFactory.getCurrentSession();
+			query2=session.createQuery(query);
+			List<Product> list = query2.getResultList();
+
+			System.out.println("Inside DAO -getAllProducts");
+
+		System.out.println("All Products Retrieved");
+		return list;
+	}
+	
+		
+	
+		
+	
+		
+		
+	}
 	
 	//@Transactional(readonly="true")
 	

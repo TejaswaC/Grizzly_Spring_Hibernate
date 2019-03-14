@@ -133,9 +133,10 @@ ${user.designation}
  <option value="http://localhost:8020/GrizzlyStore/SortByRatingServlet?order=HighToLow">High To Low</option>
 </select>  &emsp;&emsp;&emsp;&emsp;&emsp;
 </form>
-		<form class= "mx-2 my-auto w-full" action="RedirectToAddProductServlet" method="POST">
+		<form class= "mx-2 my-auto w-full" action="addProduct.html" method="POST">
 												<input id="prodId" name="userId" type="hidden" value=${user.userId}>   
-                                                       <a href="FetchCategoryServlet" class="btn btn-dark form-rounded" >Add Product</a>
+                                                                <button class="btn btn-dark form-rounded" style="width:30%; position: absolute; bottom: 50px; right: 20px;">Addd Product
+                                                       
 					</form>
 <form>
                         </div>

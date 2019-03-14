@@ -83,7 +83,7 @@
         </li>
         <li class="nav-item">
           <span class="navbar-text">
-            Welcome, ${user.name}
+            Welcome, ${profile.name}
             
           </span>
         </li>
@@ -124,22 +124,22 @@
             <img src="images/profile.png" alt="Profile Picture" width="25%">
             <br>
             <br>
-            <b> ${user.name}
+            <b> ${profile.name}
             </b>
             <br>
             <br>
-            ID:  ${user.id}
+            ID:  ${profile.id}
             <br> 
             <br>
             <br>
             Designation:
             <br>
-             ${user.designation}
+             ${profile.designation}
             <br>
             <br>
             Office:
             <br>
-             ${user.address}
+             ${profile.address}
           </center>
         </div>
         <div class="col-md-6">
@@ -184,20 +184,23 @@
                     </div>
                     
                     <div class="col-md-4">
-                      <form class= "mx-2 my-auto w-full" action="AddProductServlet" method="POST">
-                        <input type="text" name="productId" placeholder="Enter Product ID" required>
+                      <form class= "mx-2 my-auto w-full" action="AddProduct.html" method="POST">
+                        <input type="text" name="id" placeholder="Enter Product ID" required>
                       <select name="category">
-                          <option value="Category">Category
+                          <option value="category">Category
                           </option>
-                           <c:forEach  var="cat"  items= "${category}">
-                          <option >${cat.name}
+                           <c:forEach  var="category"  items= "${category}">
+                          <option >${category.name}
                           </option>
+                          
                           </c:forEach>
                         </select>
-                        <input type="text" name="productName" placeholder="Name" required>
-                        <input type="text" name="productDescription" placeholder="Description" required>
-                        <input type="number"  name="productPrice" placeholder="Price " required>
+                        <input type="text" name="name" placeholder="Name" required>
+                        <input type="text" name="description" placeholder="Description" required>
+                        <input type="text"  name="price" placeholder="Price " required>
                          <input type="text"  name="brand" placeholder="Brand" required>
+                                                   <input type="text"  name="rating" placeholder="Brand" required>
+                                                   <input type="text"  name="offer" placeholder="Brand" required>
                                   
                        
                        <span style="color:red"><b>${productError}</b></span>
@@ -213,7 +216,7 @@
           </div>
         </div>
         <div class="col-md-3">
-          <button class="btn btn-dark form-rounded" style="width:30%; position: absolute; bottom: 50px; right: 20px;">Add
+          <button class="btn btn-dark form-rounded" style="width:30%; position: absolute; bottom: 50px; right: 20px;">Addd Product
           </button>
           <br>
           <button class="btn btn-secondary form-rounded" style="width:30%;  position: absolute; bottom: 0; right: 20px;"  type="reset">Cancel
